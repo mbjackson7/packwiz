@@ -62,7 +62,7 @@
 
     .pack p { margin: .25rem 0 1.25rem; }
     .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
-    a.button {
+    .button {
       display: inline-block;
       padding: .55rem .85rem;
       border: 1px solid var(--accent);
@@ -70,9 +70,12 @@
       color: var(--accent-dark);
       background: var(--accent);
       font-weight: 700;
+      font: inherit;
       text-decoration: none;
+      cursor: pointer;
     }
-    a.button.secondary { color: var(--text); background: transparent; }
+    .button.secondary { color: var(--text); background: transparent; }
+    .copy-status { min-height: 1.6em; margin: .75rem 0 0; font-size: .9rem; }
 
     code {
       padding: .15rem .35rem;
@@ -102,19 +105,34 @@
         <h2>Create Aeronautics</h2>
         <p>Create-focused Minecraft pack for NeoForge 1.21.1.</p>
         <div class="actions">
-          <a class="button" href="create-aeronautics/pack.toml">Open pack.toml</a>
-          <a class="button secondary" href="create-aeronautics/">Browse pack files</a>
+          <button class="button" id="copy-pack-link" type="button">Copy pack link</button>
+          <a class="button secondary" href="https://github.com/mbjackson7/packwiz/tree/main/create-aeronautics">Browse pack files</a>
         </div>
+        <p class="copy-status" id="copy-status" aria-live="polite"></p>
       </article>
     </section>
 
     <section class="usage">
       <h2>Using a pack with packwiz</h2>
-      <p>Give your packwiz-compatible launcher the pack's <code>pack.toml</code> URL. For this pack, use <code>/create-aeronautics/pack.toml</code> from this site. The packwiz installer will read the index and download the referenced files.</p>
+      <p>Give your packwiz-compatible launcher the pack's <code>pack.toml</code> URL. Use <code>/create-aeronautics/pack.toml</code> from this site. The packwiz installer will read the index and download the referenced files.</p>
       <p>To add another pack, create another top-level directory and add its <code>pack.toml</code> URL to this page.</p>
     </section>
 
     <footer>Pack files are updated automatically when changes are pushed to the main branch.</footer>
   </main>
+  <script>
+    const copyButton = document.querySelector('#copy-pack-link');
+    const copyStatus = document.querySelector('#copy-status');
+    const packUrl = new URL('create-aeronautics/pack.toml', window.location.href).href;
+
+    copyButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(packUrl);
+        copyStatus.textContent = 'Pack link copied to clipboard.';
+      } catch {
+        copyStatus.textContent = `Copy this link: ${packUrl}`;
+      }
+    });
+  </script>
 </body>
 </html>
