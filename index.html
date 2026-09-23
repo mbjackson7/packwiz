@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Packwiz Packs</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101513;
+      --panel: #18211d;
+      --border: #304239;
+      --text: #edf3ed;
+      --muted: #aab9ae;
+      --accent: #b8e986;
+      --accent-dark: #15200f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top right, #29432f 0, var(--bg) 42rem);
+      color: var(--text);
+      font: 16px/1.6 ui-sans-serif, system-ui, sans-serif;
+    }
+
+    main {
+      width: min(920px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 5rem 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 .5rem;
+      color: var(--accent);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1, h2 { line-height: 1.15; }
+    h1 { max-width: 12ch; margin: 0 0 1rem; font-size: clamp(2.8rem, 8vw, 5.5rem); }
+    h2 { margin: 0 0 .75rem; font-size: 1.35rem; }
+    p { color: var(--muted); }
+    .intro { max-width: 56ch; margin-bottom: 3rem; font-size: 1.1rem; }
+
+    .packs {
+      display: grid;
+      gap: 1rem;
+      margin: 0 0 3rem;
+    }
+
+    .pack {
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--panel) 92%, transparent);
+    }
+
+    .pack p { margin: .25rem 0 1.25rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+    a.button {
+      display: inline-block;
+      padding: .55rem .85rem;
+      border: 1px solid var(--accent);
+      border-radius: 5px;
+      color: var(--accent-dark);
+      background: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    a.button.secondary { color: var(--text); background: transparent; }
+
+    code {
+      padding: .15rem .35rem;
+      border-radius: 4px;
+      color: var(--accent);
+      background: #0c100e;
+      overflow-wrap: anywhere;
+    }
+
+    .usage {
+      max-width: 70ch;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    footer { margin-top: 4rem; color: var(--muted); font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Packwiz repository</p>
+    <h1>Available packs</h1>
+    <p class="intro">Minecraft modpacks published as packwiz files. Each pack has its own directory and can be updated independently.</p>
+
+    <section class="packs" aria-label="Available packs">
+      <article class="pack">
+        <h2>Create Aeronautics</h2>
+        <p>Create-focused Minecraft pack for NeoForge 1.21.1.</p>
+        <div class="actions">
+          <a class="button" href="create-aeronautics/pack.toml">Open pack.toml</a>
+          <a class="button secondary" href="create-aeronautics/">Browse pack files</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="usage">
+      <h2>Using a pack with packwiz</h2>
+      <p>Give your packwiz-compatible launcher the pack's <code>pack.toml</code> URL. For this pack, use <code>/create-aeronautics/pack.toml</code> from this site. The packwiz installer will read the index and download the referenced files.</p>
+      <p>To add another pack, create another top-level directory and add its <code>pack.toml</code> URL to this page.</p>
+    </section>
+
+    <footer>Pack files are updated automatically when changes are pushed to the main branch.</footer>
+  </main>
+</body>
+</html>
