@@ -16,8 +16,8 @@ hash = "3b8895369640b2a52d3e05f7186185ba6798e44d513f11c5427a0fe9c16769e9"
 metafile = true
 
 [[files]]
-file = "mods/create-tracks.pw.toml"
-hash = "c79dfdac7e2df5cc4026e6ead964d698b609a374701cd012a344a5735f40d4f5"
+file = "mods/create-tracks+.pw.toml"
+hash = "4c66a17f214bd6ab6b9e4dbbfb105118fef80f11e29793c3e1df1edd6f30e296"
 metafile = true
 
 [[files]]
